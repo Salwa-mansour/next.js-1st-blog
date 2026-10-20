@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
-import Image from "next/image";
+import Header from "@/components/Header"
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,22 +26,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <header className="flex justify-between p-4">
-          <Link href="/">
-          <Image src="./next.svg" alt="" width={100} height={20}  priority />
-          </Link>
-          <nav className="flex items-center gap-4 text-sm font-medium">
-             <Link href="/" >Home</Link>
-             <Link href="/posts" >posts</Link>
-          </nav>
-        </header>
+       <Header/>
         <main className="flex-1 p-4">
            {children}
         </main>
        
-        <footer className="text-center p-4">
-          <p>this is the footer</p>
-        </footer>
+       <Footer/>
       </body>
     </html>
   );
